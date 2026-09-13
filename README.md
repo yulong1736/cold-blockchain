@@ -122,11 +122,8 @@ final-design/
 
 ## 文档索引
 
-- **QUICKSTART.md**：快速启动、配置、角色与多租户、常见问题。
 - **QUICKSTART.md**：快速启动、配置、角色与多租户、安装部署、常见问题。
 - **PROJECT_STRUCTURE.md**：目录与模块说明。
-- **REGRESSION_CHECKLIST.md**（本地文档，不入库）：人工回归测试清单（角色、主业务链、接口冒烟）。
-- **PROGRESS_REPORT.md**（若有）：已实现功能、实现要点、遇到的问题与可改进项。
 
 ## 许可证
 
