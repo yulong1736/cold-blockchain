@@ -29,7 +29,7 @@ final-design/
 ├── go.mod / go.sum            # Go 模块依赖
 ├── backend/                   # 后端逻辑
 │   ├── config/
-│   │   ├── config.example.yaml  # 配置模板（已提交；复制为 config.yaml 填写真实值）
+│   │   ├── config.example.yaml  # 配置模板
 │   │   └── config.go            # 配置加载、GetDSN()
 │   ├── models/
 │   │   ├── user.go            # 用户（含 role, company_name）
