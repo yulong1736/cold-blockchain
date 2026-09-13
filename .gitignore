@@ -1,0 +1,48 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+*~
+
+# 配置文件（包含敏感信息）
+backend/config/config.yaml
+.env
+.env.local
+
+# 日志文件
+logs/
+*.log
+
+# 数据库
+*.db
+*.sqlite
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# 编译文件
+contracts/build/
+*.sol.js
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# doc
+REGRESSION_CHECKLIST.md
+FUNCTIONAL_SPECIFICATION.md

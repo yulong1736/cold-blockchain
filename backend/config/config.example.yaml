@@ -1,0 +1,41 @@
+server:
+  port: 8082
+  mode: debug
+
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: your-database-password        # TODO: 填入数据库密码
+  dbname: cold_chain_db
+  sslmode: disable
+  max_connections: 100
+
+jwt:
+  # secret: your-secret-key-change-in-production
+  secret: your-jwt-secret                 # TODO: 填入 JWT 密钥
+  expires_hours: 24
+
+session:
+  idle_timeout_seconds: 30
+
+smtp:
+  host: smtp.qq.com
+  port: 587
+  user: your-email@qq.com                 # TODO: 填入邮箱账号
+  password: your-smtp-authorization-code  # TODO: 填入 SMTP 授权码
+  from: your-email@qq.com                 # TODO: 填入发件邮箱
+  use_tls: false
+  insecure_skip_verify: false
+
+blockchain:
+  fisco_bcos:
+    node_url: http://127.0.0.1:8545
+    group_id: 1
+    chain_id: 1
+    private_key: your-fisco-bcos-private-key   # TODO: 填入区块链私钥
+    contract_address: "" # 部署 TraceEvidence 后填入；为空时回退为 calldata 轻量存证
+
+logging:
+  level: info
+  file: logs/app.log

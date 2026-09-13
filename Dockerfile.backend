@@ -1,0 +1,32 @@
+# 构建阶段：在项目根目录为 context，main.go 与 backend/ 均在此
+FROM golang:1.25-alpine AS builder
+
+WORKDIR /app
+
+# 复制 go mod 并下载依赖
+COPY go.mod go.sum ./
+RUN go mod download
+
+# 复制全部源码（含 main.go、backend/、frontend/ 等）
+COPY . .
+
+# 在项目根目录编译（入口为 main.go，import 使用 cold-chain-trace/backend/...）
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
+
+# 运行阶段
+FROM alpine:latest
+
+RUN apk --no-cache add ca-certificates
+
+WORKDIR /app
+
+# 二进制与配置：应用从工作目录 /app 读取 backend/config/config.yaml
+COPY --from=builder /app/main .
+COPY --from=builder /app/backend/config ./backend/config
+
+# 可选：若需后端在同一容器内提供前端静态资源，取消下面注释并在构建前生成 frontend/dist
+# COPY --from=builder /app/frontend/dist ./frontend/dist
+
+EXPOSE 8082
+
+CMD ["./main"]

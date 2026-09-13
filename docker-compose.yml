@@ -1,0 +1,63 @@
+# 在项目根目录执行: docker-compose up -d
+# 后端入口为根目录 main.go，配置位于 backend/config/config.yaml
+# 数据库连接可由 environment 覆盖（DB_HOST=postgres 等），见 backend/config/config.go
+
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: cold_chain_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cold_chain_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cold_chain_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: cold_chain_backend
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: cold_chain_db
+      BLOCKCHAIN_NODE_URL: http://host.docker.internal:8545
+    volumes:
+      - ./backend/config:/app/backend/config
+    networks:
+      - cold_chain_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cold_chain_frontend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - backend
+    environment:
+      # 浏览器访问前端为 8081，/api 由 nginx 代理到 backend:8082
+      VUE_APP_API_BASE_URL: http://localhost:8081/api
+    networks:
+      - cold_chain_network
+
+volumes:
+  postgres_data:
+
+networks:
+  cold_chain_network:
+    driver: bridge

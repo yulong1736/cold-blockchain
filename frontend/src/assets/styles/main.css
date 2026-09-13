@@ -1,0 +1,267 @@
+/* ========== UI Style Guide 变量（企业级运维看板） ========== */
+:root {
+  /* 主色板 */
+  --color-primary: #2C7BE5;
+  --color-success: #00A389;
+  --color-warning: #F5A623;
+  --color-danger: #E5533D;
+  --color-info: #6B7C93;
+  /* 背景 */
+  --bg-main: #F4F6F9;
+  --bg-sidebar: #1F2D3D;
+  --bg-header: #fff;
+  --bg-card: #fff;
+  /* 文字 */
+  --text-primary: #2C3E50;
+  --text-regular: #606266;
+  --text-secondary: #909399;
+  /* 间距 8px 倍数 */
+  --spacing-unit: 8px;
+  --content-padding: 20px;
+  --section-gap: 24px;
+  /* 排版 */
+  --font-size-body: 0.95rem;
+  --font-size-section: 1.25rem;
+  --font-size-page-title: 1.75rem;
+  --font-size-card-number: 2rem;
+  --line-height: 1.5;
+  --font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+}
+
+/* 显式浅色主题变量，防止从深色切回后出现变量继承残留 */
+.app-theme-light {
+  --bg-main: #F4F6F9;
+  --bg-header: #fff;
+  --bg-card: #fff;
+  --text-primary: #2C3E50;
+  --text-regular: #606266;
+  --text-secondary: #909399;
+}
+
+/* 深色主题 */
+.app-theme-dark {
+  --bg-main: #111827;
+  --bg-header: #1F2D3D;
+  --bg-card: #1F2D3D;
+  --text-primary: #E5E7EB;
+  --text-regular: #D1D5DB;
+  --text-secondary: #9CA3AF;
+}
+.app-theme-dark .el-card {
+  background-color: var(--bg-card);
+  border-color: #3a3a3a;
+}
+.app-theme-dark .el-card__header {
+  background-color: #1f2937 !important;
+  border-bottom-color: #334155 !important;
+  color: #e5e7eb !important;
+}
+.app-theme-dark .el-card__header span {
+  color: #e5e7eb !important;
+  font-weight: 600;
+}
+.app-theme-dark .el-card__body {
+  color: var(--text-primary);
+}
+.app-theme-dark .el-table {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary);
+}
+.app-theme-dark .el-table th,
+.app-theme-dark .el-table tr,
+.app-theme-dark .el-table td {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+.app-theme-dark .el-table--border,
+.app-theme-dark .el-table--group {
+  border-color: #3a3a3a !important;
+}
+.app-theme-dark .el-table td,
+.app-theme-dark .el-table th.is-leaf {
+  border-bottom-color: #3a3a3a !important;
+}
+.app-theme-dark .el-table::before {
+  background-color: #3a3a3a !important;
+}
+.app-theme-dark .el-table__empty-text,
+.app-theme-dark .el-pagination,
+.app-theme-dark .el-pagination .el-pagination__total,
+.app-theme-dark .el-pagination .el-pagination__jump {
+  color: var(--text-regular) !important;
+}
+.app-theme-dark .el-pagination button,
+.app-theme-dark .el-pagination .btn-next,
+.app-theme-dark .el-pagination .btn-prev,
+.app-theme-dark .el-pagination .el-pager li {
+  background-color: transparent !important;
+  color: var(--text-regular) !important;
+}
+.app-theme-dark .el-pagination .el-pager li.active {
+  color: #60a5fa !important;
+}
+.app-theme-dark .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #243244 !important;
+}
+.app-theme-dark .el-descriptions {
+  color: var(--text-primary) !important;
+}
+.app-theme-dark .el-descriptions-item__label,
+.app-theme-dark .el-descriptions-item__content {
+  color: var(--text-primary) !important;
+  background-color: #1f2937 !important;
+}
+.app-theme-dark .el-descriptions td,
+.app-theme-dark .el-descriptions th {
+  border-color: #334155 !important;
+}
+.app-theme-dark .el-divider {
+  background-color: #334155 !important;
+}
+.app-theme-dark .el-tabs__item {
+  color: #cbd5e1 !important;
+}
+.app-theme-dark .el-tabs__item.is-active {
+  color: #60a5fa !important;
+}
+.app-theme-dark .el-tabs__active-bar {
+  background-color: #60a5fa !important;
+}
+.app-theme-dark .el-tabs__nav-wrap::after {
+  background-color: #334155 !important;
+}
+.app-theme-dark .el-tab-pane,
+.app-theme-dark .card-header,
+.app-theme-dark .empty-tip {
+  color: var(--text-primary) !important;
+}
+.app-theme-dark .el-dialog,
+.app-theme-dark .el-drawer,
+.app-theme-dark .el-drawer__body,
+.app-theme-dark .el-dialog__body {
+  background-color: #1f2937 !important;
+  color: var(--text-primary) !important;
+}
+.app-theme-dark .el-dialog__header,
+.app-theme-dark .el-dialog__footer,
+.app-theme-dark .el-drawer__header {
+  border-color: #334155 !important;
+  color: #e5e7eb !important;
+}
+.app-theme-dark .el-tag--info {
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  color: #e5e7eb !important;
+}
+.app-theme-dark .el-input__inner,
+.app-theme-dark .el-textarea__inner {
+  background-color: #111827;
+  border-color: #3a3a3a;
+  color: var(--text-primary);
+}
+
+/* ========== 基础重置与全局 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  background: var(--bg-main);
+}
+
+/* ========== Element UI 主色覆盖 ========== */
+.el-button--primary,
+.el-link--primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+/* 侧栏菜单选中项在 App.vue 内单独设置，此处不全局覆盖 */
+.el-button--primary:hover,
+.el-button--primary:focus {
+  background-color: #236bbe !important;
+  border-color: #236bbe !important;
+}
+.el-link--primary { color: var(--color-primary) !important; }
+.el-tag--success { background: var(--color-success); border-color: var(--color-success); }
+.el-tag--warning { background: var(--color-warning); border-color: var(--color-warning); }
+.el-tag--danger { background: var(--color-danger); border-color: var(--color-danger); }
+.el-tag--info { background: var(--color-info); border-color: var(--color-info); }
+
+/* ========== 表格：表头吸顶、异常行 ========== */
+.el-table {
+  font-size: var(--font-size-body);
+}
+/* 默认不全局启用 sticky 表头，避免在部分表格布局中出现大段空白问题 */
+.el-table th.el-table__cell {
+  background: var(--bg-card) !important;
+}
+.table-sticky-header .el-table th.el-table__cell {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.app-theme-dark .el-table th.el-table__cell {
+  background: var(--bg-card) !important;
+}
+/* 异常数据行：浅红背景 + 不单靠颜色 */
+.el-table .row-abnormal {
+  background-color: #fef0f0 !important;
+}
+.app-theme-dark .el-table .row-abnormal {
+  background-color: rgba(229, 83, 61, 0.12) !important;
+}
+
+/* ========== 区块链哈希等宽字体 ========== */
+.font-mono,
+.tx-hash,
+.blockchain-hash {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+/* ========== 统计卡片悬停抬升 ========== */
+.stat-card-hover .el-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.stat-card-hover .el-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ========== 内容区通用间距 ========== */
+.page-content-area {
+  padding: var(--content-padding);
+}
+.section-gap {
+  margin-top: var(--section-gap);
+}
+
+/* ========== Dashboard 底部功能小组件：暗色可读性增强 ========== */
+.app-theme-dark .feature-card {
+  background: #1f2937 !important;
+  border-color: #334155 !important;
+}
+.app-theme-dark .feature-title {
+  color: #e5e7eb !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.app-theme-dark .feature-desc {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  line-height: 1.55;
+}
+.app-theme-dark .feature-icon {
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.28) !important;
+}
